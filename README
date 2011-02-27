@@ -1,0 +1,12 @@
+Originally written by Ryan - http://photoblog.chezmojo.com
+I've made some modifications.
+
+Run this script on a folder of raw files and it will create two folders - raw and jpeg - and put the raw files in /raw, and create jpegs from the raw files and stick them in /raw.
+
+Requirements:
+convert from http://www.imagemagick.org/script/index.php
+dcraw from http://www.cybercom.net/~dcoffin/dcraw/
+exiftool from http://www.sno.phy.queensu.ca/~phil/exiftool/
+Python (I'm using 2.6 right now, haven't tested on other versions)
+
+NO WARRANTY - use at your own risk.
