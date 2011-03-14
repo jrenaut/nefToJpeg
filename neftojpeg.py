@@ -162,10 +162,8 @@ class Job(threading.Thread):
         for c in (" ",":","(",")"):
             infile = infile.replace(c,'\\'+c)
             outfile = outfile.replace(c,'\\'+c)
-        cmd1 = [self.opts.bins["dcraw"],"-T","-c","-h","-b","1.0","-H","2",infile]
+        cmd1 = [self.opts.bins["dcraw"], "-w","-T","-c","-h","-b","1.0","-H","2",infile]
         cmd2 = [self.opts.bins["convert"],"-scale","100%","-quality","92","-unsharp","0.3x3+1+0","-",outfile]
-        #cmd1 = [self.opts.bins["dcraw"],"-T","-c","-b","0.7","-H","2","-w",infile]		
-        #cmd2 = [self.opts.bins["convert"],"-scale","100%","-quality","90","-unsharp","0.3x3+1+0","-",outfile]
         cmd3 = [self.opts.bins["exiftool"],"-q","-overwrite_original_in_place","-TagsFromFile",infile,outfile]
         os.system(" ".join(cmd1)+"|"+" ".join(cmd2))
         os.system(" ".join(cmd3))
@@ -181,6 +179,8 @@ def moveup(count):
     return "".join(r)
 
 def prog(percent):
+    #TODO - this used to make a nice little progress bar, but now it doesn't
+    # Maybe eventually I'll figure out how to make it pretty again.
     """chars = ("@","#","$","%","&","*")
     rchr = chars[int(random.random() * len(chars))]
     sys.stdout.write(moveup(3))
