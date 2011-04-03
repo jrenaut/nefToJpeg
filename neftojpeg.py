@@ -162,7 +162,7 @@ class Job(threading.Thread):
         for c in (" ",":","(",")"):
             infile = infile.replace(c,'\\'+c)
             outfile = outfile.replace(c,'\\'+c)
-        cmd1 = [self.opts.bins["dcraw"], "-w","-T","-c","-h","-b","1.0","-H","2",infile]
+        cmd1 = [self.opts.bins["dcraw"], "-w","-T","-c","-b","1.0","-H","2",infile]
         cmd2 = [self.opts.bins["convert"],"-scale","100%","-quality","92","-unsharp","0.3x3+1+0","-",outfile]
         cmd3 = [self.opts.bins["exiftool"],"-q","-overwrite_original_in_place","-TagsFromFile",infile,outfile]
         os.system(" ".join(cmd1)+"|"+" ".join(cmd2))
